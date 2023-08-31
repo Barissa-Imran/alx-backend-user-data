@@ -4,6 +4,7 @@ module for encr passds
 """
 import bcrypt
 
+
 def hash_password(password: str) -> bytes:
     """
     Hashes the password
