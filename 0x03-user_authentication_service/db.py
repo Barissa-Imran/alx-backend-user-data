@@ -61,4 +61,3 @@ class DB:
         if result is None:
             raise NoResultFound()
         return result
-
