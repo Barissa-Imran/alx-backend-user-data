@@ -3,9 +3,13 @@
 The user model module
 """
 from slqalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
 
-class User():
+Base = declarative_base()
+
+
+class User(Base):
     """
     stores the users
     """
