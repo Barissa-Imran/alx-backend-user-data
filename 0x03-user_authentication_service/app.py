@@ -3,7 +3,7 @@
 API Routes for authentication
 """
 from auth import Auth
-from flask import abort, Flask, jsonify, request
+from flask import abort, Flask, jsonify, request, redirect
 
 
 app = Flask(__name__)
@@ -56,6 +56,24 @@ def login() -> str:
     response.set_cookie("session_id", session_id)
 
     return response
+
+
+@app.route("/sessions", methods=['DELETE'])
+def logout() -> str:
+    """Log out endpoint"""
+    session_id = request.cookies.get("session_id", None)
+
+    if session_id is None:
+        abort(403)
+
+    user = AUTH.get_user_from_session_id(session_id)
+
+    if user is None:
+        abort(403)
+
+    AUTH.destroy_session(user.id)
+
+    return redirect('/')
 
 
 if __name__ == "__main__":
