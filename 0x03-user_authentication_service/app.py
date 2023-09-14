@@ -17,7 +17,7 @@ def index() -> str:
     return jsonify(msg)
 
 
-@app.route('/user', methods=['POST'])
+@app.route('/users', methods=['POST'])
 def register_user() -> str:
     """Registers a new user"""
     try:
