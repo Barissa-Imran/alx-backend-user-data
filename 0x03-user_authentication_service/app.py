@@ -94,7 +94,7 @@ def profile() -> str:
     return jsonify(msg), 200
 
 
-@app.route('/reset_password', method=['POST'])
+@app.route('/reset_password', methods=['POST'])
 def reset_password() -> str:
     """reset password endpoint"""
     try:
