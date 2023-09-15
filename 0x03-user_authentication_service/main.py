@@ -123,7 +123,6 @@ def update_password(email: str, reset_token: str, new_password: str) -> None:
     assert response.json() == msg
 
 
-
 if __name__ == "__main__":
 
     register_user(EMAIL, PASSWD)
